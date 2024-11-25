@@ -1,0 +1,8 @@
+export const environment = {
+  production: false,
+  server: 'http://questionnaire-backend:3000/api',
+  socket: {
+    url: 'http://questionnaire-backend:3000',
+    options: {}
+  }
+};

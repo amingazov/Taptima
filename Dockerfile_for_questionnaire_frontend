@@ -1,0 +1,9 @@
+FROM node:12-alpine
+WORKDIR /app
+COPY . .
+RUN npm install
+RUN npm install sass
+RUN npm run build:prod
+RUN npm update
+EXPOSE 4200
+CMD ["npm","run", "start"]

@@ -1,0 +1,19 @@
+services:
+  questionnaire-mongodb:
+    image: mongo:8.0.3
+    container_name: questionnaire-mongodb
+    restart: unless-stopped
+  questionnaire-backend:
+    image: questionnaire-backend
+    container_name: questionnaire-backend
+    depends_on:
+      - questionnaire-mongodb
+    restart: unless-stopped
+  questionnaire-frontend:
+    image: questionnaire-frontend
+    container_name: questionnaire-frontend
+    depends_on:
+      - questionnaire-backend
+    ports:
+      - 4200:4200
+    restart: unless-stopped
